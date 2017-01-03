@@ -1,0 +1,53 @@
+.cedsocialsharinglive {
+    width: 56px;
+    text-align: center;
+    display: scroll;
+    position: fixed;
+    top: 40%;
+    margin-left: -80px; /* Adjust here if the layout is too far on the left */
+    float: left;
+    padding: 0 0 2px 0;
+    z-index: 10;
+
+}
+
+.cedsocialsharinglive .twitter {
+    padding: 5px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .pinterest {
+    padding: 10px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .stumbleupon {
+    padding: 5px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .facebook {
+    padding: 5px 0px 10px 0px;
+}
+
+.cedsocialsharinglive .reddit {
+    padding: 5px 0px 25px 0px;
+}
+
+.cedsocialsharinglive .digg {
+    padding: 5px 0px 5px 0px;
+}
+
+
+.cedsocialsharinglive .linkedin {
+    padding: 5px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .gplus {
+    padding: 5px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .digg {
+    padding: 5px 0px 5px 0px;
+}
+
+.cedsocialsharinglive .xing {
+    padding: 15px 0px 5px 0px;
+}

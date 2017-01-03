@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="content" method="upgrade">
+    <name>CedSocialSharingLive | Galaxiis.com</name>
+
+    <author>Galaxiis</author>
+    <creationDate>2016-12-31</creationDate>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <version>3.4.2</version>
+
+    <description><![CDATA[
+
+<p>This
+small plugin add automatically to any article a set of social icons
+that let your reader increase your social ranking.</p>
+<p>Choose
+which buttons to show and where to show them in your Joomla
+com_content. Include or exclude specific articles, sections or
+categories.&nbsp;Your visitors still stay on your site, so you do not
+loose visitors to other sites.&nbsp;</p>
+<p><a href="https://www.galaxiis.com/cedsocialsharinglive-demo/">More
+documentation</a><br>
+</p>
+
+]]>
+    </description>
+
+    <files>
+        <filename plugin="cedsocialsharinglive">cedsocialsharinglive.php</filename>
+        <filename plugin="cedsocialsharinglive">index.html</filename>
+        <folder>language</folder>
+        <folder>type</folder>
+    </files>
+
+    <media>
+        <folder>plg_content_cedsocialsharinglive</folder>
+    </media>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field shortId="cedsocialsharinglive"
+                       name="toolbar"
+                       type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="3.4.2"
+                        extension_name="CedSocialSharingLive"/>
+
+                <field name="categoryId" type="category" extension="com_content"
+                       require="true"
+                       multiple="true" size="10" default="" label="JCATEGORY"
+                       description="JFIELD_CATEGORY_DESC">
+                    <option value="">JOPTION_ALL_CATEGORIES</option>
+                </field>
+
+                <field name="showFrontpage" type="radio" default="0"
+                       label="Show on frontpage"
+                       description="Show toolbar in frontpage" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="showInIntro" type="radio" default="1"
+                       label="Show in Text introduction"
+                       description="Show in Text introduction" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="position" type="list" default="1" label="Position"
+                       description="position">
+                    <option value="0">Before content text articles</option>
+                    <option value="1">After content text articles</option>
+                </field>
+
+                <!--
+                <field name="style" type="radiographical"
+                       default="google3" label="Style"
+                       description="Choose Style. Default is floating" class="btn-group">
+                    <option value="style1">64×64 Pixel.</option>
+                    <option value="style2">64×64 Pixel.</option>
+                    <option value="style3">64×64 Pixel.</option>
+                    <option value="style4">64×64 Pixel.</option>
+                    <option value="style5">64×64 Pixel.</option>
+                    <option value="style6">64×64 Pixel.</option>
+                    <option value="style7">64×64 Pixel.</option>
+                </field>
+-->
+                <field name="style" type="list" default="left.css" label="Style"
+                       description="style">
+                    <option value="floating.css">floating.css</option>
+                    <option value="left.css">left.css</option>
+                    <option value="right.css">right.css</option>
+                    <option value="horizontal-left-full.css"
+                            >horizontal-left-full.css
+                    </option>
+                    <option value="horizontal-left.css"
+                            >horizontal-left.css
+                    </option>
+                    <option value="horizontal-right-full.css"
+                            >horizontal-right-full.css
+                    </option>
+                    <option value="horizontal-right.css"
+                            >horizontal-right.css
+                    </option>
+                </field>
+
+            </fieldset>
+            <fieldset name="Google" label="GooglePlus">
+                <field name="googlePlusVisible" type="radio" default="1"
+                       label="Google+" description="Google+ Visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="googlePlusAnnotation" type="radiographical"
+                       default="google3" label="Button style size"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       description="LinkedIn button style" class="btn-group">
+                    <option value="google1">64×64 Pixel.</option>
+                    <option value="google2">64×64 Pixel.</option>
+                    <option value="google3">64×64 Pixel.</option>
+                    <option value="google4">64×64 Pixel.</option>
+                </field>
+                <field name="googlePlusSize" type="radio"
+                       default="" label="Button style size"
+                       description="LinkedIn button style" class="btn-group">
+                    <option value="data-height='15'">Small (15px)</option>
+                    <option value="">Medium (20px)</option>
+                    <option value="data-height='24'">Large (24px)</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="Stumbleupon" label="Stumbleupon">
+                <field name="stumbleuponVisible" type="radio" default="1"
+                       label="Stumbleupon" description="Stumbleupon Visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="stumbleuponSize" type="radiographical"
+                       default="stumbleupon4" label="Button style size"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       description="Stumbleupon button style" class="btn-group">
+                    <option value="stumbleupon1">Small box</option>
+                    <option value="stumbleupon2">Small box rounded</option>
+                    <option value="stumbleupon3">Small nobox</option>
+                    <option value="stumbleupon4">Small nobox</option>
+                    <option value="stumbleupon5">badge</option>
+                    <option value="stumbleupon6">circle big</option>
+                </field>
+            </fieldset>
+            <fieldset name="Xing" label="Xing">
+                <field name="xingVisible" type="radio" default="1"
+                       label="Xing" description="Xing Visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="xingSize" type="radiographical"
+                       default="xing1" label="Button style size"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       description="Xing button style" class="btn-group">
+                    <option value="xing1">64×64 Pixel.</option>
+                    <option value="xing2">32×32 Pixel.</option>
+                    <option value="xing3">32×32 Pixel.</option>
+                    <option value="xing4">32×32 Pixel.</option>
+                    <option value="xing5">32×32 Pixel.</option>
+                    <option value="xing6">32×32 Pixel.</option>
+                </field>
+
+                <field name="xingTitle" type="text" default='Share with your Xing network.'
+                       label="Xing title"
+                       description="title wenn mouse over button, for example 'Share with your Xing network.'">
+                </field>
+            </fieldset>
+
+            <fieldset name="LinkedIn" label="LinkedIn">
+                <field name="linkedInVisible" type="radio" default="1"
+                       label="LinkedIn" description="facebook Visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="linkedInButton" type="radiographical"
+                       default="linkedin1" label="LinkedIn button style"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       description="LinkedIn button style" class="btn-group">
+                    <option value="linkedin1">64×64 Pixel.</option>
+                    <option value="linkedin2">32×32 Pixel.</option>
+                    <option value="linkedin3">32×32 Pixel.</option>
+                    <!--<option value="linkedin4">32×32 Pixel.</option>
+                    <option value="linkedin5">32×32 Pixel.</option>
+                    <option value="linkedin6">32×32 Pixel.</option>-->
+                </field>
+
+            </fieldset>
+            <fieldset name="Facebook" label="Facebook">
+
+                <field name="facebookWidth" type="text" default='450'
+                       label="Width"
+                       description="The width of the Like button.">
+                </field>
+
+                <field name="facebookVisible" type="radio" default="1"
+                       label="Facebook" description="facebook Visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="facebookButton" type="radiographical" default="facebook1"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       label="Facebook button" description="facebook button" class="btn-group">
+                    <option value="facebook1">64×64 Pixel.</option>
+                    <option value="facebook2">32×32 Pixel.</option>
+                    <option value="facebook3">32×32 Pixel.</option>
+                    <option value="facebook4">32×32 Pixel.</option>
+                    <option value="facebook5">32×32 Pixel.</option>
+                    <option value="facebook6">32×32 Pixel.</option>
+                </field>
+
+                <field name="facebookColorScheme" type="list" default=" "
+                       label="Colorscheme" description="colorscheme - the color scheme for the like button. Options: 'light', 'dark'">
+                    <option value=" ">Standard</option>
+                    <option value="">Light</option>
+                    <option value="data-colorscheme='dark'">Dark</option>
+                </field>
+
+                <field name="facebookSend" type="radio" default="data-send='true'"
+                       label="Send Button" description="Specifies whether to include a Send button with the Like button." class="btn-group">
+                    <option value="data-send='true'">Yes</option>
+                    <option value="data-send='false'">No</option>
+                </field>
+
+                <field name="facebookVerb" type="radio" default=" "
+                       label="Verb to display" description="Verb to display on the button. Options: 'like', 'recommend'" class="btn-group">
+                    <option value=" ">Like</option>
+                    <option value="data-action='recommend'">Recommend</option>
+                </field>
+
+                <field name="facebookFaces" type="radio" default=" " class="btn-group"
+                       label="Show faces" description="Show profile pictures when two or more friends like this. (standard layout only). Default is Yes.">
+                    <option value=" ">Yes</option>
+                    <option value="data-show-faces='false'">No</option>
+                </field>
+
+            </fieldset>
+            <fieldset name="Digg" label="Digg">
+                <field name="diggVisible" type="radio" default="1" label="Digg"
+                       description="Digg" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="diggButton" type="radiographical" default="digg5"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       label="Digg button style" description="digg button style" class="btn-group">
+                    <option value="digg1">Wide</option>
+                    <option value="digg2">Wide</option>
+                    <option value="digg3">Wide</option>
+                    <option value="digg4">Wide</option>
+                    <option value="digg5">Wide</option>
+                    <option value="digg6">Wide</option>
+                    <option value="digg7">Wide</option>
+                    <option value="digg8">Wide</option>
+                    <option value="digg9">Wide</option>
+                    <option value="digg10">Wide</option>
+                    <option value="digg11">Wide</option>
+                    <option value="digg12">Wide</option>
+                    <option value="digg13">Wide</option>
+                    <option value="digg14">Wide</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="reddit" label="Reddit">
+                <field name="redditVisible" type="radio" default="1" label="Reddit"
+                       description="Reddit" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="redditButton" type="radiographical" default="reddit2"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       label="Reddit button style" description="Reddit button style" class="btn-group">
+                    <option value="reddit2">Wide</option>
+                    <option value="reddit3">Wide</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="pinterest" label="Pinterest">
+                <field name="pinterestVisible" type="radio" default="1" label="Pinterest"
+                       description="Pinterest" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="pinterestButton" type="radiographical" default="pinterest1"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       label="Pinterest button style" description="Pinterest button style" class="btn-group">
+                    <option value="pinterest1">Wide</option>
+                    <option value="pinterest2">Wide</option>
+                    <option value="pinterest3">Wide</option>
+                    <option value="pinterest4">Wide</option>
+                    <option value="pinterest5">Wide</option>
+                    <option value="pinterest6">Wide</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="Twitter" label="Twitter">
+
+                <field name="twitterVisible" type="radio" default="1"
+                       label="Twitter" description="twitter is visible" class="btn-group">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+
+                <field name="twitterName" type="text"
+                       default="your twitter name" label="Twitter via"
+                       description="Twitter via"></field>
+
+                <field name="twitterLocale" type="list" default="en"
+                       label="locale" description="locale">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ja">Japanese</option>
+                    <option value="es">Spanish</option>
+                </field>
+
+                <field name="twitterCount" type="radiographical" default="twitter3"
+                       base_path="/media/plg_content_cedsocialsharinglive/"
+                       label="Twitter button style" description="Twitter button style" class="btn-group">
+                    <option value="twitter1">Wide</option>
+                    <option value="twitter2">Medium</option>
+                    <option value="twitter3">Compact</option>
+                </field>
+                <field name="twitterSize" type="radio" default=""
+                       label="locale" description="locale" class="btn-group">
+                    <option value="size1">Medium</option>
+                    <option value="size2">Large</option>
+
+                </field>
+
+            </fieldset>
+        </fields>
+    </config>
+</extension>
